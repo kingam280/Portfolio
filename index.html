@@ -11,21 +11,25 @@
 
 <body>
     <header>
+
         <nav>
-            <!--<a href="#" class="nav">About me</a>
-            <a href="#" class="nav">Projects</a>
-            <a href="#" class="nav">Skills</a>
-            <a href="#" class="nav">Contact</a>-->
-            <i class="fas fa-bars"></i>
+
+            <a href="#about" class="nav">About me</a>
+            <a href="#projects" class="nav">Projects</a>
+            <a href="#skills" class="nav">Skills</a>
+            <a href="#contact" class="nav">Contact</a>
+
         </nav>
+        <i class="fas fa-bars show"></i><i class="fas fa-times"></i>
         <div class="title">
             <h1>Kinga Mamak</h1>
             <h3>Front-end developer</h3>
         </div>
 
         <div id="arrow"><i class="fas fa-chevron-down"></i></div>
+
     </header>
-    <section class="about">
+    <section class="about" id="about">
         <h2>About me</h2>
         <div class="aboutcontent"><img src="img/me.jpg" alt="moje zdjęcie">
             <p>Hello! My name is Kinga. Currently I am studying Applied Psychology at Jagiellonian Uniwersity in Cracow.
@@ -33,16 +37,18 @@
                 programming. In my freetime I like training at the gym and sewing clothes on my sewing machine.</p>
 
         </div>
+        <div class="goback"><a href="index.html"><i class="far fa-arrow-alt-circle-up"></i></a></div>
     </section>
-    <section class="projects">
+    <section class="projects" id="projects">
         <h2>Projects</h2>
         <div class="project"><img src="img/projekt1.png">
             <div class="cover"><a href="https://kingam280.github.io/grarysuj/index.html" target="_blank">DEMO</a><a
                     href="https://github.com/kingam280/grarysuj" target="_blank">GITHUB</a></div>
         </div>
         <div class="project"></div>
+        <div class="goback"><a href="index.html"><i class="far fa-arrow-alt-circle-up"></i></a></div>
     </section>
-    <section class="skills">
+    <section class="skills" id="skills">
         <h2>Skills</h2>
         <div class="programming">
             <img src="img/tech.png">
@@ -50,8 +56,9 @@
         <div class="other">
 
         </div>
+        <div class="goback"><a href="index.html"><i class="far fa-arrow-alt-circle-up"></i></a></div>
     </section>
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="contactMe">
             <h2>Contact me</h2>
             <form>
@@ -72,11 +79,12 @@
                         src="img/github.png" alt=""></a>
             </div>
         </div>
+        <div class="goback"><a href="index.html"><i class="far fa-arrow-alt-circle-up"></i></a></div>
     </section>
     <footer>
         <p>Kinga Mamak © 2020</p>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 
 </html>

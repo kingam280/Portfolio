@@ -2,14 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     font-size: 10px;
     width: 100%;
-    min-height: -webkit-fill-available
+    min-height: -webkit-fill-available;
+
 }
 
+a {
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    color: inherit;
+}
 
 header,
 .projects,
@@ -21,9 +30,7 @@ header,
     background-position: center;
     background-size: cover;
     background-attachment: scroll;
-
-
-
+    position: relative;
 }
 
 h2 {
@@ -37,9 +44,62 @@ h2 {
 /* HEADER */
 
 header {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+
+}
+
+nav {
+    width: 100%;
+    max-height: 100%;
+    background-color: rgba(151, 75, 79, 0.9);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: left 0.2s linear;
+}
+
+nav a {
+    flex-basis: 50px;
+    width: 100%;
+    text-align: center;
+
+    color: #381e20;
+    font-size: 1.5rem;
+    padding: 5%;
+    border-bottom: 1px solid rgba(151, 75, 79, 1);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    background-color: rgba(151, 75, 79, 1);
+}
+
+header i.fa-bars,
+header i.fa-times {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 3rem;
+    z-index: 10;
+    display: none;
+}
+
+header i.fa-bars.show,
+header i.fa-times.show {
+    display: block;
+}
+
+nav.active {
+    left: 0;
+    z-index: 10;
 }
 
 .title {
@@ -65,26 +125,14 @@ header h1 {
     color: #381e20;
     align-self: end;
     text-align: center;
-
 }
 
 header h3 {
     font-size: 1.8rem;
     color: #974b4f;
     text-align: center;
-
 }
 
-nav {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 3rem;
-}
-
-nav i:hover {
-    transform: scale(1.1);
-}
 
 #arrow {
     position: absolute;
@@ -94,24 +142,17 @@ nav i:hover {
     color: #381e20;
     width: 48px;
     height: 48px;
-    /*border: 3px solid #381e20;
-    border-radius: 50%;*/
     text-align: center;
     text-shadow: 0 10px, 0 20px;
     overflow: hidden;
-
 }
 
-/*#arrow:hover {
-    background-color: #f3e8ee;
-    font-size: 1.6;
-    transform: scale(1.1);
-    cursor: pointer;
-}*/
 
 #arrow i {
     animation: arrow 1.5s infinite linear;
 }
+
+
 
 /* SECTION ABOUT */
 
@@ -122,7 +163,7 @@ nav i:hover {
     position: relative;
     background-color: #f3e8ee;
     overflow: auto;
-    z-index: 10;
+
 }
 
 .about h2 {
@@ -138,23 +179,35 @@ nav i:hover {
     animation: mephoto 1s;
 }
 
-
 .about p {
     font-size: 1rem;
     line-height: 1.5;
     text-align: justify;
     padding: 0 5% 10%;
-    ;
     margin-top: 10%;
 
 }
+
+.goback {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 2.5rem;
+    color: #381e20;
+    transition: .1s;
+    z-index: 1;
+}
+
+.goback:hover {
+    transform: scale(1.2);
+}
+
 
 /* SECTION PROJECTS */
 
 .projects {
     overflow: auto;
     padding-bottom: 5%;
-
 }
 
 .project {
@@ -166,12 +219,10 @@ nav i:hover {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 0 10px 3px #f3e8ee;
-
 }
 
 .project>img {
     width: 100%;
-
 }
 
 .cover {
@@ -188,25 +239,14 @@ nav i:hover {
 
 .cover>a {
     display: inline-block;
-
     padding: 30px;
     font-size: 12px;
     color: white;
-    text-decoration: none;
 }
 
-
-.project:nth-of-type(1):hover .cover {
+.project:hover .cover {
     bottom: 0;
 }
-
-
-/* .project:nth-of-type(1) {
-    background: url('img/projekt1.png');
-    background-position: top;
-    background-size: contain;
-    background-repeat: no-repeat;
-} */
 
 /* SECTION SKILLS */
 
@@ -291,7 +331,6 @@ textarea {
 
 .findme {
     height: auto;
-    ;
     margin: 15% 0 10%;
 }
 
@@ -322,7 +361,6 @@ textarea {
 footer {
     position: relative;
     bottom: 0;
-    height: 10vh;
     width: 100%;
     background-color: #974b4f;
     line-height: 10vh;
@@ -336,6 +374,11 @@ footer {
 /* MEDIA QUERIES */
 
 @media (orientation: landscape) {
+
+    nav a {
+        padding: 3%;
+    }
+
     .title {
         height: 60vh;
         width: 85vw;
@@ -394,6 +437,10 @@ footer {
         font-size: 3.1rem;
     }
 
+    nav a {
+        font-size: 2rem;
+    }
+
     .title {
         width: 80vw;
         height: 60vh;
@@ -410,11 +457,11 @@ footer {
     #arrow {
         width: 64px;
         height: 64px;
-        font-size: 2.0rem;
+        font-size: 1.8rem;
         text-shadow: 0 15px, 0 30px;
     }
 
-    nav {
+    header i.fa-bars {
         top: 20px;
         right: 20px;
         font-size: 4rem;
@@ -457,9 +504,33 @@ footer {
         margin: 20px;
     }
 
+    footer {
+        line-height: 8vh;
+    }
 }
 
 @media (min-width: 1024px) {
+    nav {
+        position: fixed;
+        flex-direction: row;
+
+        left: 0;
+        height: auto;
+        z-index: 1;
+    }
+
+    nav a {
+        flex-basis: 25%;
+        line-height: 5vh;
+        padding: 10px;
+        border: none;
+    }
+
+    header i.fa-bars.show {
+        display: none;
+    }
+
+
     #arrow {
         bottom: 5%;
         width: 82px;
@@ -481,6 +552,7 @@ footer {
     .cover>a {
         font-size: 40px;
     }
+
 
 }
 
