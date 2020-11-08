@@ -152,6 +152,26 @@ header h3 {
     animation: arrow 1.5s infinite linear;
 }
 
+.goback {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 2.5rem;
+    color: #381e20;
+    transition: .1s;
+    z-index: 1;
+    opacity: 0;
+    transition: .2s;
+}
+
+.goback.active {
+    opacity: 1;
+}
+
+.goback:hover {
+    transform: scale(1.2);
+}
+
 
 
 /* SECTION ABOUT */
@@ -166,6 +186,8 @@ header h3 {
 
 }
 
+
+
 .about h2 {
     padding-bottom: 20px;
 }
@@ -176,8 +198,14 @@ header h3 {
     margin: 10% auto 15%;
     border-radius: 25%;
     box-shadow: 0 0 20px #974b4f;
-    animation: mephoto 1s;
+    /* transform: scale(0);
+    transition: 0.2s; */
 }
+
+/* .about img.active,
+.about p.active {
+    transform: scale(1);
+} */
 
 .about p {
     font-size: 1rem;
@@ -185,22 +213,11 @@ header h3 {
     text-align: justify;
     padding: 0 5% 10%;
     margin-top: 10%;
-
+    /* transform: scale(0);
+    transition: 0.2s; */
 }
 
-.goback {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 2.5rem;
-    color: #381e20;
-    transition: .1s;
-    z-index: 1;
-}
 
-.goback:hover {
-    transform: scale(1.2);
-}
 
 
 /* SECTION PROJECTS */
@@ -214,7 +231,7 @@ header h3 {
     width: 70%;
     height: auto;
     background-color: white;
-    margin: 5px auto;
+    margin: 15px auto;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -510,6 +527,7 @@ footer {
 }
 
 @media (min-width: 1024px) {
+
     nav {
         position: fixed;
         flex-direction: row;
@@ -563,7 +581,7 @@ footer {
 
 @keyframes arrow {
     0% {
-        transform: translateY(-40px)
+        transform: translateY(-70px)
     }
 
     50% {
@@ -571,7 +589,7 @@ footer {
     }
 
     100% {
-        transform: translateY(40px)
+        transform: translateY(70px)
     }
 }
 
